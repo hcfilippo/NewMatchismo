@@ -21,6 +21,7 @@
 		429A9FAA18B078B400B8DA42 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429A9F8C18B078B300B8DA42 /* UIKit.framework */; };
 		429A9FB218B078B400B8DA42 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 429A9FB018B078B400B8DA42 /* InfoPlist.strings */; };
 		429A9FB418B078B400B8DA42 /* NewMatchismoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 429A9FB318B078B400B8DA42 /* NewMatchismoTests.m */; };
+		429A9FC318B082E100B8DA42 /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 429A9FC218B082E100B8DA42 /* PlayingCard.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */

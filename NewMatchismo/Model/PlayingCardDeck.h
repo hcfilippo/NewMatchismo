@@ -1,16 +1,13 @@
 //
-//  CardGameViewController.h
+//  PlayingCardDeck.h
 //  NewMatchismo
 //
 //  Created by hcfilippo on 14-2-16.
 //  Copyright (c) 2014年 hcfilippo. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Deck.h"
 
-@interface CardGameViewController : UIViewController
-
-
-
+@interface PlayingCardDeck : Deck
 
 @end
