@@ -42,29 +42,11 @@
         unsigned index = arc4random() % [self.cards count];
         randomCard = self.cards[index];
         [self.cards removeObjectAtIndex:index];
-        [self.cards insertObject:randomCard atIndex:index];
+      //  [self.cards insertObject:randomCard atIndex:index];
     }
     return randomCard;
 }
 
-- (Card *)getCardAtIndex:(int) currentCardIndex
-{
-    Card *card = nil;
-    if (currentCardIndex >= [self maxCardIndex])
-    {
-        card = self.cards[[self maxCardIndex] - 1];
-    }
-    else
-    {
-        card = self.cards[currentCardIndex];
-    }
-    return card;
-}
-
-- (int) maxCardIndex
-{
-    return 52;
-}
 
 
 @end

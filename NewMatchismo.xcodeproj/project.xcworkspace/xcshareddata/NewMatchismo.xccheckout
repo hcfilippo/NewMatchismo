@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A83CBCF0-AC7F-4917-BBF8-75C3FA19F9C9</string>
+	<key>IDESourceControlProjectName</key>
+	<string>NewMatchismo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>65E3DDC1-76C1-4364-8E84-17E1F513FCC8</key>
+		<string>https://github.com/hcfilippo/NewMatchismo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>NewMatchismo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>65E3DDC1-76C1-4364-8E84-17E1F513FCC8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/hcfilippo/NewMatchismo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>65E3DDC1-76C1-4364-8E84-17E1F513FCC8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>65E3DDC1-76C1-4364-8E84-17E1F513FCC8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>NewMatchismo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

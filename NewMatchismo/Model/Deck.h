@@ -15,7 +15,6 @@
 - (void)addCard:(Card *)card;
 
 -(Card *)drawRandomCard;
--(Card *)getCardAtIndex:(int) currentCardIndex;
 
 
 @end
