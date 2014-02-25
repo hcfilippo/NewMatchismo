@@ -22,4 +22,12 @@
     }
     return score;
 }
+
+- (NSAttributedString *)getAttributedTitle
+{
+    NSMutableAttributedString *title = [[NSMutableAttributedString alloc] init];
+    return title;
+}
+
+
 @end

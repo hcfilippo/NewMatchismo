@@ -7,8 +7,8 @@
 //
 
 #import "CardGameViewController.h"
-#import "PlayingCardDeck.h"
 #import "CardMatchingGame.h"
+#import "HistoryViewController.h"
 
 @interface CardGameViewController ()
 - (IBAction)touchCardButton:(UIButton *)sender;
@@ -16,6 +16,7 @@
 - (IBAction)touchGameModeSwitch:(id)sender;
 @property (nonatomic, strong) Deck *deck;
 @property (nonatomic, strong) CardMatchingGame *game;
+@property (nonatomic, strong) NSMutableString *history;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (nonatomic) int gameMode;
@@ -37,6 +38,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"CardGameHistory"])
+    {
+        if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
+            HistoryViewController *hvc = (HistoryViewController *) segue.destinationViewController;
+            hvc.historyText = self.history;
+        }
+    }
+
+}
+
+
+- (NSMutableString *)history
+{
+    if (!_history) {
+            _history = [[NSMutableString alloc] init];
+        [_history appendString:@"Start a new game"];
+    }
+    return _history;
+}
+
 - (CardMatchingGame *)game
 {
     if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
@@ -51,9 +76,9 @@
     return _deck;
 }
 
-- (Deck *)createDeck
+- (Deck *)createDeck    // abstract
 {
-    return [[PlayingCardDeck alloc] init];
+    return nil;
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender
@@ -86,6 +111,7 @@
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
     self.messageLabel.text = [NSString stringWithFormat:@""];
+    [self.history appendString:@"\n\nStart a new game"];
 }
 
 
@@ -100,6 +126,7 @@
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
     self.messageLabel.text = [self.game message];
+    [self.history appendString:[NSString stringWithFormat:@"\n%@", self.messageLabel.text]];
 }
 
 - (NSString *)titleForCard:(Card *)card
