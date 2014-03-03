@@ -80,12 +80,6 @@
 }
 
 
-- (void)tap:(UITapGestureRecognizer *)gesture
-{
-    int a = 1;
-    a++;
-}
-
 
 - (void)didReceiveMemoryWarning
 {
