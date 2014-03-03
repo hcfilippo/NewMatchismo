@@ -9,28 +9,83 @@
 #import "CardGameViewController.h"
 #import "CardMatchingGame.h"
 #import "HistoryViewController.h"
+#import "PlayingCardView.h"
+#import "Grid.h"
 
 @interface CardGameViewController ()
-- (IBAction)touchCardButton:(UIButton *)sender;
+
 - (IBAction)touchRestartButton:(UIButton *)sender;
-- (IBAction)touchGameModeSwitch:(id)sender;
+
 @property (nonatomic, strong) Deck *deck;
 @property (nonatomic, strong) CardMatchingGame *game;
-@property (nonatomic, strong) NSMutableString *history;
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
+
+@property (strong, nonatomic) IBOutletCollection(PlayingCardView) NSMutableArray *playingCardViews;
+
+@property (strong, nonatomic) UIView *cardAreaView;
+
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (nonatomic) int gameMode;
-@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 
 @end
 
 @implementation CardGameViewController
 
+
+
+#define WIDTH_SIZE 4
+#define HEIGHT_SIZE 3
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    
+    Grid *grid = [[Grid alloc] init];
+    CGSize cardArea;
+    cardArea.width = 280;
+    cardArea.height = 320;
+    grid.size = cardArea;
+    grid.cellAspectRatio = (CGFloat)(2.0)/(3.0);
+    grid.minimumNumberOfCells = 12;
+    
+    CGSize cellSize = grid.cellSize;
+    NSUInteger rowCount = grid.rowCount;
+    NSUInteger columnCount = grid.columnCount;
+    
+    
+    CGPoint cardAreaViewCenter;
+    cardAreaViewCenter.x = 20;
+    cardAreaViewCenter.y = 70;
+    self.cardAreaView.center = cardAreaViewCenter;
+    [self.view addSubview:self.cardAreaView];
+    
+
+    for (NSUInteger row = 0; row < rowCount; row++)
+    {
+        for (NSUInteger column = 0; column < columnCount; column++)
+        {
+            CGRect frame = [grid frameOfCellAtRow:row inColumn:column];
+            PlayingCardView *cardView = [[PlayingCardView alloc] initWithFrame:frame];
+            
+            UITapGestureRecognizer *tgr = [[UITapGestureRecognizer alloc] initWithTarget:cardView action:@selector(tap:)];
+            [cardView addGestureRecognizer:tgr];
+            
+            [self.cardAreaView addSubview:cardView];
+            [self.playingCardViews addObject:cardView];
+            
+        }
+    }
 }
+
+
+- (void)tap:(UITapGestureRecognizer *)gesture
+{
+    int a = 1;
+    a++;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -39,32 +94,22 @@
 }
 
 
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (NSMutableArray *) playingCardViews
 {
-    if ([segue.identifier isEqualToString:@"CardGameHistory"])
-    {
-        if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
-            HistoryViewController *hvc = (HistoryViewController *) segue.destinationViewController;
-            hvc.historyText = self.history;
-        }
-    }
-
+    _playingCardViews = [[NSMutableArray alloc] init];
+    return _playingCardViews;
 }
 
-
-- (NSMutableString *)history
+- (UIView *)cardAreaView
 {
-    if (!_history) {
-            _history = [[NSMutableString alloc] init];
-        [_history appendString:@"Start a new game"];
-    }
-    return _history;
+    if (!_cardAreaView) _cardAreaView = [[UIView alloc]init];
+    return _cardAreaView;
 }
+
 
 - (CardMatchingGame *)game
 {
-    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+    if (!_game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.playingCardViews count]
                                                           usingDeck:[self createDeck]];
     return _game;
 }
@@ -81,12 +126,14 @@
     return nil;
 }
 
-- (IBAction)touchCardButton:(UIButton *)sender
+
+
+- (void)drawRandomPlayingCard
 {
-    int cardIndex = [self.cardButtons indexOfObject:sender];
-    [self.game chooseCardAtIndex:cardIndex gameMode:self.gameMode];
-    [self updateUI];
+    Card *card = [self.deck drawRandomCard];
+    
 }
+
 
 - (IBAction)touchRestartButton:(UIButton *)sender
 {
@@ -102,31 +149,21 @@
 
 - (void) resetGame
 {
-    _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+    _game = [[CardMatchingGame alloc] initWithCardCount:[self.playingCardViews count]
                                               usingDeck:[self createDeck]];
-    for (UIButton *cardButton in self.cardButtons) {
-        [cardButton setTitle:@"" forState:UIControlStateNormal];
-        [cardButton setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
-        cardButton.enabled = YES;
-    }
+
+    
+    
+    
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-    self.messageLabel.text = [NSString stringWithFormat:@""];
-    [self.history appendString:@"\n\nStart a new game"];
 }
 
 
 - (void) updateUI
 {
-    for (UIButton *cardButton in self.cardButtons) {
-        int cardIndex = [self.cardButtons indexOfObject:cardButton];
-        Card *card = [self.game cardAtIndex:cardIndex];
-        [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
-        [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-        cardButton.enabled = !card.isMatched;
-    }
+
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-    self.messageLabel.text = [self.game message];
-    [self.history appendString:[NSString stringWithFormat:@"\n%@", self.messageLabel.text]];
+    
 }
 
 - (NSString *)titleForCard:(Card *)card

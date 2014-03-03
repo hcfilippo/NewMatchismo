@@ -15,4 +15,6 @@
 
 - (Deck *)createDeck;   //abstract
 
+- (void)tap:(UITapGestureRecognizer *)gesture;
+
 @end

@@ -13,10 +13,8 @@
 
 @interface SetGameViewController ()
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
-@property (nonatomic, strong) NSMutableString *history;
 @property (nonatomic, strong) Deck *deck;
 @property (nonatomic, strong) SetMatchingGame *game;
-@property (weak, nonatomic) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 - (IBAction)touchRestartButton:(id)sender;
 - (IBAction)touchCardButton:(UIButton *)sender;
@@ -47,31 +45,11 @@
 }
 
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"SetGameHistory"])
-    {
-        if ([segue.destinationViewController isKindOfClass:[HistoryViewController class]]) {
-            HistoryViewController *hvc = (HistoryViewController *) segue.destinationViewController;
-            hvc.historyText = self.history;
-        }
-    }
-    
-}
-
 - (SetMatchingGame *)game
 {
     if (!_game) _game = [[SetMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                                           usingDeck:[self createDeck]];
     return _game;
-}
-
-
-- (NSMutableString *)history
-{
-    if (!_history)
-        _history = [[NSMutableString alloc] init];
-    return _history;
 }
 
 
@@ -85,8 +63,6 @@
 {
     _game = [[SetMatchingGame alloc] initWithCardCount:[self.cardButtons count]
                                               usingDeck:[self createDeck]];
-    [self.history appendString:@"\n\nStart a new game"];
-    self.messageLabel.text = [NSString stringWithFormat:@""];
     [self updateUI];
 }
 
@@ -101,10 +77,6 @@
         cardButton.enabled = !card.isChosen;
     }
     self.scoreLabel.text = [NSString stringWithFormat:@"Score: %d", self.game.score];
-    self.messageLabel.text = [self.game message];
-    if (self.messageLabel.text != NULL) {
-        [self.history appendString:[NSString stringWithFormat:@"\n%@", self.messageLabel.text]];
-    }
 }
 
 
