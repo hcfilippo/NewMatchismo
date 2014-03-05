@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CardGameViewController.h"
 
 @interface PlayingCardView : UIView
 
 @property (nonatomic) NSUInteger rank;
 @property (strong, nonatomic) NSString *suit;
 @property (nonatomic) BOOL faceUp;
+@property (nonatomic) BOOL matched;
 
-- (void)pinch:(UIPinchGestureRecognizer *)gesture;
-- (void)tap:(UITapGestureRecognizer *)gesture;
 @end

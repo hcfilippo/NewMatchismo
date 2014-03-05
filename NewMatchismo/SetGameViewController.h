@@ -10,4 +10,6 @@
 
 @interface SetGameViewController : UIViewController
 
+- (void)handleTap:(UITapGestureRecognizer *)recognizer;
+
 @end

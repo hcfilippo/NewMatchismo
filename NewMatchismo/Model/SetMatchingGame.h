@@ -15,6 +15,10 @@
 - (void)chooseCardAtIndex:(NSInteger)index;
 - (Card *)cardAtIndex:(NSInteger)index;
 
+-(void)removeCardAtIndex:(NSInteger)index;
+
+- (BOOL) drawCards:(NSInteger)count usingDeck:(Deck *)deck;
+
 @property (nonatomic,readonly) NSInteger score;
 @property (nonatomic,readonly) NSString *message;
 

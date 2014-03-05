@@ -9,12 +9,15 @@
 
 #import <UIKit/UIKit.h>
 #import "Deck.h"
+#import "CardMatchingGame.h"
 
 @interface CardGameViewController : UIViewController
 
+@property (strong,atomic)CardMatchingGame *game;
 
 - (Deck *)createDeck;   //abstract
+- (void) updateUI;
 
-- (void)tap:(UITapGestureRecognizer *)gesture;
+- (void)handleTap:(UITapGestureRecognizer *)recognizer;
 
 @end

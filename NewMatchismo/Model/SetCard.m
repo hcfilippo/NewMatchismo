@@ -11,7 +11,6 @@
 
 @implementation SetCard
 
-
 - (int)match:(NSArray *)otherCards
 {
     SetCard *first = otherCards[0];

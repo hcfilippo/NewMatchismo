@@ -42,20 +42,41 @@
     return self;
 }
 
+- (BOOL) drawCards:(NSInteger)count usingDeck:(Deck *)deck
+{
+    for (int i = 0; i < count; i++) {
+        Card *card = [deck drawRandomCard];
+        if (card) {
+            [self.cards addObject:card];
+        } else {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+
 
 static const int MISMATCH_PENALY = 5;
 static const int MATCH_BONUS = 10;
 
 
+-(void)removeCardAtIndex:(NSInteger)index
+{
+    Card *card = [self cardAtIndex:index];
+    [self.cards removeObject:card];
+}
+
+
 - (void)chooseCardAtIndex:(NSInteger)index
 {
     Card *card = [self cardAtIndex:index];
-    if (!card.isChosen)
+    if (!card.isChosen && !card.isMatched)
     {
         NSMutableArray *chosenCards;
         chosenCards = [[NSMutableArray alloc] init];
         for (Card *otherCard in self.cards) {
-            if (otherCard.isChosen) {
+            if (otherCard.isChosen && !otherCard.isMatched) {
                 [chosenCards addObject:otherCard];
             }
         }
@@ -66,15 +87,25 @@ static const int MATCH_BONUS = 10;
             {
                 self.message = [NSString stringWithFormat:@"A set found! %d points bonus",matchScore * MATCH_BONUS];
                 self.score += matchScore * MATCH_BONUS;
+                for (Card *otherCard in chosenCards)
+                {
+                    otherCard.chosen = YES;
+                    otherCard.matched = YES;
+                }
+                card.matched = YES;
+                card.chosen = YES;
             }
             else {
                 
                 self.message = [NSString stringWithFormat:@"Not a set! %d points penalty", MISMATCH_PENALY];
                 self.score -= MISMATCH_PENALY;
-            }
-            for (Card *otherCard in chosenCards)
-            {
-                otherCard.chosen = NO;
+                for (Card *otherCard in chosenCards)
+                {
+                    otherCard.chosen = NO;
+                    otherCard.matched = NO;
+                }
+                card.matched = NO;
+                card.chosen = NO;
             }
         } else {
             self.message = @"";

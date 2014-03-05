@@ -52,28 +52,10 @@
 
 - (NSString *)rankAsString
 {
-    return @[@"A",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"J",@"Q",@"K"][self.rank];
+    return @[@"?",@"A",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"J",@"Q",@"K"][self.rank];
 }
 
 #pragma mark - Gesture Handling
-
-- (void)pinch:(UIPinchGestureRecognizer *)gesture
-{
-    if ((gesture.state == UIGestureRecognizerStateChanged) ||
-        (gesture.state == UIGestureRecognizerStateEnded)) {
-        self.faceCardScaleFactor *= gesture.scale;
-        gesture.scale = 1.0;
-    }
-}
-
-
-- (void)tap:(UITapGestureRecognizer *)gesture
-{
-    if (gesture.state == UIGestureRecognizerStateEnded)
-    {
-        self.faceUp = !self.faceUp;
-    }
-}
 
 
 #pragma mark - Drawing
@@ -97,8 +79,20 @@
     [[UIColor whiteColor] setFill];
     UIRectFill(self.bounds);
     
-    [[UIColor blackColor] setStroke];
-    [roundedRect stroke];
+    
+    
+    if (self.matched)
+    {
+        [[UIColor redColor] setStroke];
+        [roundedRect stroke];
+        self.alpha = 0.5;
+        
+    }
+    else {
+        [[UIColor blackColor] setStroke];
+        [roundedRect stroke];
+        self.alpha = 1;
+    }
     
     if (self.faceUp) {
         UIImage *faceImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", [self rankAsString], self.suit]];
@@ -244,11 +238,9 @@
 {
     self = [super initWithFrame:frame];
     [self setup];
- //   self.userInteractionEnabled = YES;
- //   [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)]];
-    
     return self;
 }
+
 
 
 @end

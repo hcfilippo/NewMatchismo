@@ -38,7 +38,7 @@
     double maxCellHeight = self.maxCellHeight;
     
     BOOL flipped = NO;
-    if (aspectRatio > 1) {
+/*    if (aspectRatio > 1) {
         flipped = YES;
         overallHeight = ABS(self.size.width);
         overallWidth = ABS(self.size.height);
@@ -48,7 +48,7 @@
         maxCellWidth = self.maxCellHeight;
         maxCellHeight = self.maxCellWidth;
     }
-    
+*/
     if (minCellWidth < 0) minCellWidth = 0;
     if (minCellHeight < 0) minCellHeight = 0;
 

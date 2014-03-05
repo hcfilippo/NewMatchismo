@@ -38,11 +38,25 @@
                 self = nil;
                 break;
             }
-            
         }
     }
     return self;
 }
+
+
+- (BOOL) drawCards:(NSInteger)count usingDeck:(Deck *)deck
+{
+    for (int i = 0; i < count; i++) {
+        Card *card = [deck drawRandomCard];
+        if (card) {
+            [self.cards addObject:card];
+        } else {
+            return NO;
+        }
+    }
+    return YES;
+}
+
 
 
 static const int MISMATCH_PENALTY = 2;
@@ -146,11 +160,11 @@ static const int COST_TO_CHOOSE = 1;
 
 
 
-
-
 - (Card *)cardAtIndex:(NSInteger)index
 {
     return (index < [self.cards count]) ? self.cards[index] : nil;
 }
+
+
 
 @end

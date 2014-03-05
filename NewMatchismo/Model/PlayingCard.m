@@ -56,7 +56,7 @@
 
 + (NSArray *)validSuits
 {
-    return @[@"♦️",@"♣️",@"♥️",@"♠️"];
+    return @[@"♦",@"♣",@"♥",@"♠"];
 }
 
 - (void)setSuit:(NSString *)suit
@@ -74,12 +74,12 @@
 
 + (NSArray *) rankStrings
 {
-    return @[@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"J",@"Q",@"K",@"A"];
+    return @[@"?",@"A",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"J",@"Q",@"K"];
 }
 
 + (NSUInteger) maxRank
 {
-    NSUInteger rank = 12;
+    NSUInteger rank = 13;
     return rank;
 }
 

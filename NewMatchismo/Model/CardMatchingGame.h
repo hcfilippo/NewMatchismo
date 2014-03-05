@@ -17,6 +17,8 @@
 - (void)chooseCardAtIndex:(NSInteger)index gameMode:(NSInteger) mode;
 - (Card *)cardAtIndex:(NSInteger)index;
 
+- (BOOL) drawCards:(NSInteger)count usingDeck:(Deck *)deck;
+
 @property (nonatomic,readonly) NSInteger score;
 @property (nonatomic,readonly) NSString *message;
 
