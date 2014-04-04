@@ -47,7 +47,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     
     self.numberOfCards = 12;
-    
+    self.cardAreaView.center = self.view.center;
     [self.cardAreaView setFrame:CGRectMake(20, 70, self.view.bounds.size.width - 40, self.view.bounds.size.height - 160)];
 
     [self.view addSubview:self.cardAreaView];

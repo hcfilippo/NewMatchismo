@@ -47,6 +47,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 
+    self.cardAreaView.center = self.view.center;
     [self.cardAreaView setFrame:CGRectMake(10, 70, self.view.bounds.size.width - 20, self.view.bounds.size.height - 160)];
     
     [self.view addSubview:self.cardAreaView];
@@ -115,6 +116,7 @@
     
     [self reCalculateGrid];
     [self updateUI];
+    self.piled = NO;
 }
 
 - (void)resetGrid
