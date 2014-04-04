@@ -13,10 +13,8 @@
 
 @interface CardGameViewController : UIViewController
 
-@property (strong,atomic)CardMatchingGame *game;
-
-- (Deck *)createDeck;   //abstract
-- (void) updateUI;
+//- (Deck *)createDeck;   //abstract
+//- (void) updateUI;
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer;
 

@@ -68,7 +68,7 @@ static const int MATCH_BONUS = 10;
 }
 
 
-- (void)chooseCardAtIndex:(NSInteger)index
+- (int)chooseCardAtIndex:(NSInteger)index
 {
     Card *card = [self cardAtIndex:index];
     if (!card.isChosen && !card.isMatched)
@@ -94,6 +94,7 @@ static const int MATCH_BONUS = 10;
                 }
                 card.matched = YES;
                 card.chosen = YES;
+                return 1;
             }
             else {
                 
@@ -106,13 +107,14 @@ static const int MATCH_BONUS = 10;
                 }
                 card.matched = NO;
                 card.chosen = NO;
+                return 0;
             }
         } else {
             self.message = @"";
             card.chosen = YES;
         }
     }
-    
+    return 0;
 }
 
 

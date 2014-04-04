@@ -16,4 +16,5 @@
 @property (nonatomic) BOOL faceUp;
 @property (nonatomic) BOOL matched;
 
+- (id)resetFrame:(CGRect)frame;
 @end

@@ -8,11 +8,12 @@
 
 #import "PlayingCardView.h"
 
-@interface PlayingCardView()
+@interface PlayingCardView() <UIDynamicAnimatorDelegate>
 @property (nonatomic) CGFloat faceCardScaleFactor;
 @end
 
 @implementation PlayingCardView
+
 
 #pragma mark - Properties
 
@@ -241,6 +242,13 @@
     return self;
 }
 
+#pragma mark - ReSize
+
+- (id)resetFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+    return self;
+}
 
 
 @end

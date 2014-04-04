@@ -41,6 +41,11 @@
     [self setNeedsDisplay];
 }
 
+- (void)setRemoved:(BOOL)removed
+{
+    _removed = removed;
+    [self setNeedsDisplay];
+}
 
 #pragma mark - Drawing
 
@@ -101,7 +106,6 @@
         CGContextSetRGBStrokeColor(context, 0.6, 0.9, 0, 1.0);
         CGContextSetRGBFillColor(context, 0.6, 0.9, 0, 1.0);
     }
-    
     
     UIBezierPath *path = [[UIBezierPath alloc] init];
     
@@ -283,5 +287,10 @@
     return self;
 }
 
+
+- (void)removeFromDeck
+{
+    self.removed = YES;
+}
 
 @end

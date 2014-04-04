@@ -17,7 +17,9 @@
 
 @property (nonatomic) BOOL chosen;
 @property (nonatomic) BOOL matched;
+@property (nonatomic) BOOL removed;
 
 - (id)resetFrame:(CGRect)frame;
+- (void)removeFromDeck;
 
 @end

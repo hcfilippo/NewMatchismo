@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Bom-jx-i0k">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Bom-jx-i0k">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Set Game View Controller - SetGame-->
@@ -16,11 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXj-m6-sb3">
-                                <rect key="frame" x="127" y="398" width="66" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXj-m6-sb3">
+                                <rect key="frame" x="128" y="400" width="64" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="OB1-5e-9WN"/>
+                                    <constraint firstAttribute="width" constant="64" id="wCs-up-Fae"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Restart" backgroundImage="cardfront">
+                                <state key="normal" title="Re-deal" backgroundImage="cardfront">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -28,16 +32,23 @@
                                     <action selector="touchRestartButton:" destination="FBy-VI-h52" eventType="touchUpInside" id="lwZ-Vs-cr3"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOv-kQ-r8r">
-                                <rect key="frame" x="20" y="402" width="99" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOv-kQ-r8r">
+                                <rect key="frame" x="20" y="400" width="64" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="flx-7E-gmo"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGo-cM-9Ee">
-                                <rect key="frame" x="234" y="398" width="66" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGo-cM-9Ee">
+                                <rect key="frame" x="236" y="400" width="64" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="TwV-Ot-Y02"/>
+                                    <constraint firstAttribute="width" constant="64" id="ysn-wV-ERx"/>
+                                </constraints>
                                 <state key="normal" title="3 Cards" backgroundImage="cardfront">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -47,6 +58,18 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fGo-cM-9Ee" secondAttribute="trailing" constant="20" id="2Bz-W9-aZe"/>
+                            <constraint firstItem="RR1-Xv-nHr" firstAttribute="top" secondItem="iXj-m6-sb3" secondAttribute="bottom" constant="6" id="B2A-2R-04g"/>
+                            <constraint firstItem="DOv-kQ-r8r" firstAttribute="leading" secondItem="G2P-tb-RSS" secondAttribute="leading" constant="20" id="Hcn-gA-EVR"/>
+                            <constraint firstItem="RR1-Xv-nHr" firstAttribute="top" secondItem="DOv-kQ-r8r" secondAttribute="bottom" constant="6" id="YtL-w4-XRW"/>
+                            <constraint firstItem="iXj-m6-sb3" firstAttribute="centerX" secondItem="G2P-tb-RSS" secondAttribute="centerX" id="hGb-l3-YYr"/>
+                            <constraint firstItem="RR1-Xv-nHr" firstAttribute="top" secondItem="fGo-cM-9Ee" secondAttribute="bottom" constant="6" id="nAV-i5-fUn"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="uwZ-2N-FFQ" appends="YES" id="aZ0-UX-bmP"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="SetGame" id="haq-d4-ZF1"/>
                     <connections>
@@ -54,8 +77,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9a-Qo-SBR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="uwZ-2N-FFQ">
+                    <connections>
+                        <action selector="pinch:" destination="FBy-VI-h52" id="aTf-20-KrQ"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="135" y="-200"/>
+            <point key="canvasLocation" x="265" y="-200"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ori-5B-gOl">
@@ -88,16 +116,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDU-Du-GXe">
-                                <rect key="frame" x="20" y="403" width="99" height="23"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDU-Du-GXe">
+                                <rect key="frame" x="20" y="400" width="64" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Sry-Uf-qOP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlS-H2-59a">
-                                <rect key="frame" x="127" y="401" width="66" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlS-H2-59a">
+                                <rect key="frame" x="128" y="400" width="64" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Yxr-Gz-rm3"/>
+                                    <constraint firstAttribute="width" constant="64" id="uph-s6-mb8"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Restart" backgroundImage="cardfront">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -109,6 +144,16 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="0.25098040699958801" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="wlS-H2-59a" secondAttribute="centerX" id="3Ak-yk-tsh"/>
+                            <constraint firstItem="hbh-Rr-yFN" firstAttribute="top" secondItem="wlS-H2-59a" secondAttribute="bottom" constant="6" id="Rpe-nJ-OhO"/>
+                            <constraint firstItem="VDU-Du-GXe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="oJu-jm-RPo"/>
+                            <constraint firstItem="hbh-Rr-yFN" firstAttribute="top" secondItem="VDU-Du-GXe" secondAttribute="bottom" constant="6" id="qAq-rr-8Lg"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="fcs-ID-eXw" appends="YES" id="yu4-fV-FWq"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="CardGame" id="S3x-Fo-29q"/>
                     <connections>
@@ -116,8 +161,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="fcs-ID-eXw">
+                    <connections>
+                        <action selector="pinch:" destination="vXZ-lx-hvc" id="ZGr-g1-oXT"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="145" y="471"/>
+            <point key="canvasLocation" x="265" y="429"/>
         </scene>
         <!--Navigation Controller - CardGame-->
         <scene sceneID="s7N-xG-9rK">
@@ -125,6 +175,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dWK-9P-aGa" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="CardGame" id="Wpk-no-7jp"/>
                     <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gok-Vk-cZU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -136,7 +187,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9m-Lc-3UU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-381" y="471"/>
+            <point key="canvasLocation" x="-391" y="429"/>
         </scene>
         <!--Navigation Controller - SetGame-->
         <scene sceneID="GUb-NX-2Wi">
@@ -144,11 +195,16 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HAR-0p-kyh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="SetGame" id="457-zi-jC6"/>
                     <toolbarItems/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="O3M-Tc-QKK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="VZi-3R-zGd">
+                        <rect key="frame" x="0.0" y="276" width="480" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="FBy-VI-h52" kind="relationship" relationship="rootViewController" id="GmT-43-UP9"/>
                     </connections>

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4278EC7E18BB655B00C765B4 /* PlayingCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4278EC7D18BB655B00C765B4 /* PlayingCardGameViewController.m */; };
+		4236C55E18EECCD8008BFB9A /* PlayingCardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4236C55D18EECCD8008BFB9A /* PlayingCardGameViewController.m */; };
 		4278EC8418BB8D7F00C765B4 /* SetGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4278EC8318BB8D7F00C765B4 /* SetGameViewController.m */; };
 		429A9F8918B078B300B8DA42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429A9F8818B078B300B8DA42 /* Foundation.framework */; };
 		429A9F8B18B078B300B8DA42 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 429A9F8A18B078B300B8DA42 /* CoreGraphics.framework */; };
@@ -47,8 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4278EC7C18BB655B00C765B4 /* PlayingCardGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardGameViewController.h; sourceTree = "<group>"; };
-		4278EC7D18BB655B00C765B4 /* PlayingCardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardGameViewController.m; sourceTree = "<group>"; };
+		4236C55C18EECCD8008BFB9A /* PlayingCardGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayingCardGameViewController.h; sourceTree = "<group>"; };
+		4236C55D18EECCD8008BFB9A /* PlayingCardGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardGameViewController.m; sourceTree = "<group>"; };
 		4278EC8218BB8D7F00C765B4 /* SetGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetGameViewController.h; sourceTree = "<group>"; };
 		4278EC8318BB8D7F00C765B4 /* SetGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetGameViewController.m; sourceTree = "<group>"; };
 		429A9F8518B078B300B8DA42 /* NewMatchismo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewMatchismo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +151,8 @@
 		429A9F8E18B078B400B8DA42 /* NewMatchismo */ = {
 			isa = PBXGroup;
 			children = (
+				4236C55C18EECCD8008BFB9A /* PlayingCardGameViewController.h */,
+				4236C55D18EECCD8008BFB9A /* PlayingCardGameViewController.m */,
 				42B902DE18C4986A0044D17A /* PlayingCardView.h */,
 				42B902DF18C4986A0044D17A /* PlayingCardView.m */,
 				42B902E418C4DFA40044D17A /* SetCardView.h */,
@@ -160,8 +162,6 @@
 				429A9F9E18B078B400B8DA42 /* CardGameViewController.m */,
 				4278EC8218BB8D7F00C765B4 /* SetGameViewController.h */,
 				4278EC8318BB8D7F00C765B4 /* SetGameViewController.m */,
-				4278EC7C18BB655B00C765B4 /* PlayingCardGameViewController.h */,
-				4278EC7D18BB655B00C765B4 /* PlayingCardGameViewController.m */,
 				429A9FC018B080BF00B8DA42 /* Model */,
 				429A9FA018B078B400B8DA42 /* Images.xcassets */,
 				429A9F8F18B078B400B8DA42 /* Supporting Files */,
@@ -270,7 +270,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CardGame;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = hcfilippo;
 				TargetAttributes = {
 					429A9FA518B078B400B8DA42 = {
@@ -324,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				429A9F9918B078B400B8DA42 /* CardGameAppDelegate.m in Sources */,
+				4236C55E18EECCD8008BFB9A /* PlayingCardGameViewController.m in Sources */,
 				42B902D418C48BAC0044D17A /* SetMatchingGame.m in Sources */,
 				429A9FC918B0831200B8DA42 /* Deck.m in Sources */,
 				42B902D218C48BAC0044D17A /* SetCard.m in Sources */,
@@ -337,7 +338,6 @@
 				42B902E318C4BAA60044D17A /* Grid.m in Sources */,
 				429A9FC318B082E100B8DA42 /* PlayingCard.m in Sources */,
 				429A9FBF18B0809200B8DA42 /* Card.m in Sources */,
-				4278EC7E18BB655B00C765B4 /* PlayingCardGameViewController.m in Sources */,
 				4278EC8418BB8D7F00C765B4 /* SetGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -392,7 +392,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -431,7 +430,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -489,7 +487,6 @@
 		429A9FBB18B078B400B8DA42 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NewMatchismo.app/NewMatchismo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -512,7 +509,6 @@
 		429A9FBC18B078B400B8DA42 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NewMatchismo.app/NewMatchismo";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

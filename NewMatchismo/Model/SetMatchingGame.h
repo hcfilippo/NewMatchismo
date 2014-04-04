@@ -12,7 +12,7 @@
 
 - (instancetype)initWithCardCount:(NSInteger)count usingDeck:(Deck *)deck;
 
-- (void)chooseCardAtIndex:(NSInteger)index;
+- (int)chooseCardAtIndex:(NSInteger)index;
 - (Card *)cardAtIndex:(NSInteger)index;
 
 -(void)removeCardAtIndex:(NSInteger)index;
