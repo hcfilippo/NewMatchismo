@@ -61,8 +61,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+- (void)viewDidAppear:(BOOL)animated
 {
     [self.cardAreaView setFrame:CGRectMake(10, 70, self.view.bounds.size.width - 20, self.view.bounds.size.height - 160)];
     if (!self.piled)
@@ -73,6 +72,20 @@
     {
         [self animatePileViews:[self.cardAreaView subviews]];
     }
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self.cardAreaView setFrame:CGRectMake(10, 70, self.view.bounds.size.width - 20, self.view.bounds.size.height - 160)];
+    if (!self.piled)
+    {
+        [self reCalculateGrid];
+    }
+    else
+    {
+        [self animatePileViews:[self.cardAreaView subviews]];
+    }
+
 }
 
 - (SetMatchingGame *)game
